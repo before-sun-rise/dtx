@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import static ir.mehdi.controller.NavigationURL.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @author Mehdi Afsari kashi
@@ -69,5 +70,16 @@ public class EvaluationAdmin {
 
         //TODO delete the evaluation from the database using its ID
         return LIST_PAGE.url();
+    }
+
+
+    @RequestMapping(value = "/evaluations")
+    public String evaluationsView(ModelMap model){
+
+        //TODO get the complete Evaluation List From Database
+        List<Evaluation> evaluations = null;
+        model.addAttribute("evaluations", evaluations);
+
+        return LIST_PAGE.toString();
     }
 }

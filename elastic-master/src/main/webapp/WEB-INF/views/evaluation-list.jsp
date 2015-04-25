@@ -14,5 +14,17 @@
 </head>
 <body>
 
+
+<table>
+    <c:if test="${not empty evaluations}">
+        <c:forEach var="evaluation" items="${evaluations}" varStatus="i">
+            <tr>
+                <td>{evaluation.title}</td>
+                <td><a href="add/${evaluation.id}">add</a></td>
+                <td><a href="update/${evaluation.id}">update</a></td>
+            </tr>
+        </c:forEach>
+    </c:if>
+</table>
 </body>
 </html>
