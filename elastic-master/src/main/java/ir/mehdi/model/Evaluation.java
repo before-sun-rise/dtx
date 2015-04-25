@@ -1,5 +1,8 @@
 package ir.mehdi.model;
 
+import javax.persistence.*;
+import java.util.Set;
+
 /**
  * @author Mehdi Afsari kashi
  * @version 1.0.0
@@ -7,19 +10,33 @@ package ir.mehdi.model;
  *
  * Creation Date : 2015/04/25
  */
+
+@Entity
+@Table(name="EVALUATION")
 public class Evaluation {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column(name = "DESCRIPTION", nullable = false)
     private String description;
+
+    @Column(name = "SUBSCRIBER_NAME", nullable = false)
     private String subscriberName;
+
+    @Column(name="TITLE_QUESTION")
     private Question titleQuestion;
-    private Question question;
+
+    @Column(name = "QUESTION_ID")
+    private Set<Question> questions;
 
 
-    public Evaluation(String description, String subscriberName, Question titleQuestion, Question question) {
+    public Evaluation(String description, String subscriberName, Question titleQuestion, Set<Question> questions) {
         this.description = description;
         this.subscriberName = subscriberName;
         this.titleQuestion = titleQuestion;
-        this.question = question;
+        this.questions = questions;
     }
 
     public Evaluation() {
@@ -41,12 +58,20 @@ public class Evaluation {
         this.titleQuestion = titleQuestion;
     }
 
-    public Question getQuestion() {
-        return question;
+    public Long getId() {
+        return id;
     }
 
-    public void setQuestion(Question question) {
-        this.question = question;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Set<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(Set<Question> questions) {
+        this.questions = questions;
     }
 
     public String getSubscriberName() {

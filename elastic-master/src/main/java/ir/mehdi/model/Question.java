@@ -9,16 +9,35 @@ package ir.mehdi.model;
  */
 public class Question {
 
+    private Long id;
     private String question;
-
     private String answers;
+
+    private Evaluation evaluation;
 
     public Question() {
     }
 
-    public Question(String question, String answers) {
+    public Question( String question, String answers, Evaluation evaluation) {
         this.question = question;
         this.answers = answers;
+        this.evaluation = evaluation;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Evaluation getEvaluation() {
+        return evaluation;
+    }
+
+    public void setEvaluation(Evaluation evaluation) {
+        this.evaluation = evaluation;
     }
 
     public String getQuestion() {
